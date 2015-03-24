@@ -10,8 +10,12 @@ angular.module('potatoApp.admin.controllers',[])
 
         $scope.batch.dateReceipt = new Date().toISOString().slice(0, 10);
 
-        $scope.shippers = shipperService.getListShipper();
+        $scope.shippers = [];
 
+        shipperService.getListShipper().then(function(response){
+            $scope.shippers = response.data;
+        });
+        
         $scope.createBatch = function () {
             $scope.buttonText="Saving. . .";
 

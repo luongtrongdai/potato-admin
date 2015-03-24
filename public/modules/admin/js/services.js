@@ -8,14 +8,15 @@ angular.module('potatoApp.admin.services',[])
             }
         });
     }])
-    . service('shipperService', function ($http) {
-        this.getListShipper = function () {
-            $http.get("shippers/list")
-                .success(function(response) {
-                    return response;
-                });
+    . factory('shipperService', function ($http) {
+        return {
+            getListShipper: function () {
+                return $http.get("shippers/list", {})
+                            .then(function(data) {
+                                return data;
+                            });
             }
+        }
     });
-
 
 angular.module('potatoApp.admin.services').value('BATCH_ENDPOINT','batches/:id');

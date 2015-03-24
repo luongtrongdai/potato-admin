@@ -85,7 +85,7 @@ class ShipperController extends Controller {
 
     public function listShipperName()
     {
-        $shippers = Shipper::lists('name', 'id');
+        $shippers = Shipper::all(['name', 'id']);
 
         return Response::json($shippers);
     }

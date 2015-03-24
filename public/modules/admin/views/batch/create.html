@@ -1,5 +1,4 @@
 <link rel="stylesheet" href="modules/admin/css/batch/create.css">
-
 <form name="createBatchForm" ng-submit="createBatch()" class="form-horizontal" novalidate role="form">
     <div class="form-group col-xs-12 col-sm-12 col-md-6 col-lg-6">
         <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 text-right">
@@ -15,8 +14,12 @@
         </div>
         <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
             <!-- <input name='shipper_id' ng-model='batch.shipperId' class='form-control' placeholder='Shipper'> -->
-                <select chosen id="inputProductCategory" class="form-control" ng-model="batch.shipperId" ng-options="key as value for (key , value) in shippers">
+                <!-- <select chosen id="lstShipper" class="form-control" ng-mode'batch.shipperId'>
                     <option  value="">Select shipper</option>
+                    <option data-ng-repeat="shipper in shippers" value="{{shipper.id}}">{{shipper.name}}</option>
+                </select> -->
+                <select chosen class="form-control" ng-model="batch.shipperId"
+                    ng-options="shipper.id as shipper.name for shipper in shippers">
                 </select>
         </div>
     </div>
